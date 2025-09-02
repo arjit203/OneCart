@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
-import { authDataContext } from './AuthContext'
+import { authDataContext } from './authContext'
 import {userDataContext} from './UserContext'
 
 import axios from 'axios'
@@ -22,6 +22,7 @@ function ShopContext({children}) {
     const getProducts = async () => {
         try {
             let result = await axios.get(serverUrl + '/api/product/list')
+            console.log(result.data)
             setProducts(result.data)
         } catch (error) {
             console.log(error)
@@ -50,6 +51,7 @@ function ShopContext({children}) {
         if(userData){
             try {
                let result = await axios.post(serverUrl + '/api/cart/add',{itemId,size},{withCredentials:true})
+               console.log(result.data)
              
             } catch (error) {
                 console.log(error)
@@ -61,6 +63,7 @@ const getUserCart = async () => {
     try {
         let result = await axios.post(serverUrl + '/api/cart/get',{},{ withCredentials: true })
         setCartItem(result.data)
+        console.log(result.data)
     } catch (error) {
         console.log(error)
     }

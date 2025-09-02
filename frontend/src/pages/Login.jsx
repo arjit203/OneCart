@@ -32,6 +32,7 @@ let navigate=useNavigate()
             let result = await axios.post(serverUrl + '/api/auth/login',{
                 email,password
             },{withCredentials:true})
+            console.log(result.data)
                 getCurrentUser()
                 navigate("/")
                 toast.success("Login Successfully")
@@ -54,6 +55,8 @@ let navigate=useNavigate()
 
             const result=await axios.post(serverUrl + "/api/auth/googlelogin",{name,email},
                 {withCredentials:true})
+            
+                console.log(result.data)
                 getCurrentUser()
                 navigate("/")
                 toast.success("Login Successfully")

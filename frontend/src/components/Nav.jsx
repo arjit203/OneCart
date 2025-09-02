@@ -11,7 +11,7 @@ import { MdContacts } from "react-icons/md"
 
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import { authDataContext } from '../context/AuthContext'
+import { authDataContext } from '../context/authContext'
 import { shopDataContext } from '../context/ShopContext'
 import { toast } from 'react-toastify'
 function Nav() {
@@ -26,6 +26,7 @@ function Nav() {
     const handleLogout= async ()=>{
         try {
             const result= await axios.get(serverUrl + "/api/auth/logout",{withCredentials:true})
+            console.log(result.data)
             getCurrentUser()
             navigate("/login")
             toast.success("LogOut Successfully")

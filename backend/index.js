@@ -18,7 +18,7 @@ app.use(cookieParser())
 
 // backend ko frontend se Connect krna
 app.use(cors({
-    origin:["https://onecart-frontendone-r0wa.onrender.com","http://localhost:5174"],
+    origin:["https://onecart-frontendone-r0wa.onrender.com","https://onecart-admin-aej8.onrender.com"],
     credentials:true
 }))
 // 

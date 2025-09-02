@@ -15,7 +15,6 @@ function Lists() {
 
     try {
         const result = await axios.post(serverUrl + '/api/order/list',{},{withCredentials:true})
-        console.log("Orders Response:", result.data);
         setOrders(result.data.reverse())
     } catch (error) {
       console.log(error)

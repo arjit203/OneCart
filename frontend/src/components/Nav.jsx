@@ -25,11 +25,13 @@ function Nav() {
 
     const handleLogout= async ()=>{
         try {
-            const result= await axios.get(serverUrl + "/api/auth/logout",{withCredentials:true})
-            console.log(result.data)
-            getCurrentUser()
-            navigate("/login")
+            const result= await axios.post(serverUrl + "/api/auth/logout",{withCredentials:true})
+            setShowProfile(false)
             toast.success("LogOut Successfully")
+            navigate("/login")
+          
+          
+           
         } catch (error) {
             console.log(error)
             toast.success("LogOut Failed")
